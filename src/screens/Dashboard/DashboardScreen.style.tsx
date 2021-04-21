@@ -12,3 +12,9 @@ export const PageContainer = styled('div')`
     justify-content: center;
     height:100%;
 `;
+
+export const TitleWrapper = styled('div')`
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+`;

@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Web3 from "web3";
 
 import Web3Service from "../../services/Web3Service";
-import { DashboardWraper, PageContainer } from './DashboardScreen.style';
+import { DashboardWraper, PageContainer, TitleWrapper } from './DashboardScreen.style';
 
 import PanelWhitelist from "../../components/Panels/PanelWhitelist/PanelWhitelist";
 import PanelBurn from "../../components/Panels/PanelBurn/PanelBurn";
@@ -56,6 +56,10 @@ export default function DashboardScreen() {
 
     return (<>
         <PageContainer>
+            <TitleWrapper>
+                <h1>KeyKo - ERC1155 Controller</h1>
+            </TitleWrapper>
+
             {isOwner && <DashboardWraper>
                 <PanelWhitelist {...refreshRolesObject} />
                 <PanelBlacklist {...refreshRolesObject} />
