@@ -1,21 +1,24 @@
-import ConnectComponent from './Components/Connect/ConnectComponent';
-
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
 
+
+import DashboardScreen from "./screens/Dashboard/DashboardScreen";
+import ConnectScreen from './screens/Connect/ConnectScreen';
+
 export default function App() {
   return (
     <Router>
       <div>
         <Switch>
-          <Route path="/">
-            <ConnectComponent/>
+          <Route path="/dashboard">
+            <DashboardScreen/>
           </Route>
-          <Route path="/panel">
-            <Panel />
+
+          <Route path="/">
+            <ConnectScreen/>
           </Route>
         </Switch>
       </div>
@@ -23,6 +26,3 @@ export default function App() {
   );
 }
 
-function Panel() {
-  return <h2>Panel</h2>;
-}
