@@ -1,11 +1,7 @@
 import React from 'react';
-import '../App.css';
 import Modal from 'react-modal';
-import { Button, ModalStyle, ButtonWraper, AppWraper, ModalContent, ModalHeader, ModalFooter, ModalBody, MetamaskLogin, MetamaskImg, ModalCloseButton } from './MainComponent.style';
+import { Button, ModalStyle, ButtonWraper, AppWraper, ModalContent, ModalHeader, ModalFooter, ModalBody, MetamaskLogin, MetamaskImg, ModalCloseButton } from './ConnectComponent.style';
 import Web3 from 'web3';
-
-
-
 
 Modal.setAppElement('#connect_modal')
 
@@ -16,23 +12,23 @@ declare global {
 
 
 
-function MainComponent() {
+export default function ConnectComponent() {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   console.log('window.eth', (window as any).ethereum)
   
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
   }
 
-  function afterOpenModal() {
+  const afterOpenModal = () => {
 
   }
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
   }
 
-  function connectWeb3(){
+  const connectWeb3 = () => {
     
     window.ethereum.request({method:'eth_requestAccounts'}).then((e:any) => {
       console.log(e);
@@ -64,7 +60,7 @@ function MainComponent() {
             </ModalHeader>
             <ModalBody>
               <MetamaskLogin onClick={connectWeb3}>
-                <MetamaskImg src={require("./../assets/images/metamask_logo.jpeg").default} alt={"MetaMask Logo"} />
+                <MetamaskImg src={require("./../../assets/images/metamask_logo.jpeg").default} alt={"MetaMask Logo"} />
                 Connect MetaMask
               </MetamaskLogin>
             </ModalBody>
@@ -77,5 +73,3 @@ function MainComponent() {
     </AppWraper>
   );
 }
-
-export default MainComponent;

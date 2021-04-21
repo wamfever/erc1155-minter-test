@@ -1,4 +1,4 @@
-import MainComponent from './Components/MainComponent';
+import ConnectComponent from './Components/Connect/ConnectComponent';
 
 import {
   BrowserRouter as Router,
@@ -12,7 +12,7 @@ export default function App() {
       <div>
         <Switch>
           <Route path="/">
-            <MainComponent/>
+            <ConnectComponent/>
           </Route>
           <Route path="/panel">
             <Panel />
