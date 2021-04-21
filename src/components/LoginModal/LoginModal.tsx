@@ -3,10 +3,10 @@ import Modal from 'react-modal';
 import { ModalStyle, ModalContent, ModalHeader, ModalFooter, ModalBody, MetamaskLogin, MetamaskImg, ModalCloseButton } from './LoginModal.style';
 
 
-Modal.setAppElement('#connect_modal');
 
 
 export default function LoginModal(props : any) {
+    Modal.setAppElement('#connect_modal');
     const { modalIsOpen, afterOpenModal, closeModal, connectSuccessCallback } = props;
 
     const connectWeb3 = () => {
