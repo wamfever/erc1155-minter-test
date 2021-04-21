@@ -20,3 +20,8 @@ export const PanelContent = styled('div')`
         margin-bottom: 15px;
     }
 `;
+
+export const InputErrorSpan = styled('span')`
+    font-size: 0.75rem;
+    color: red;
+`;

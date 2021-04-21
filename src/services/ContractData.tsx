@@ -1,4 +1,4 @@
-{
+const ContractData = {
     "address":"0x9c88EA32d0693F8dA29EaFa2A239A7EF716290f1",
     "abi":[
     {
@@ -509,4 +509,6 @@
     }
   ]
 
-}
+};
+
+export default ContractData;

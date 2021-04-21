@@ -5,3 +5,10 @@ export const DashboardWraper = styled('div')`
     display: flex;
     justify-content: space-around;
 `;
+
+export const PageContainer = styled('div')`
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    height:100%;
+`;

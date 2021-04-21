@@ -1,24 +1,5 @@
 import styled from 'styled-components';
 
-export const Button = styled.button`
-    padding: 10px;
-    box-sizing: border-box;
-    font-family: 'Catamaran', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: .07em;
-    background: #2980b9;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    color: white;
-    font-size:16px;
-    cursor: pointer;
-    transition: background 300ms;
-    &:hover {
-        background: #3498db;     
-    }
-`;
-
 export const ButtonWraper = styled('div')`
     h1 {
         text-align: center;
@@ -34,9 +15,10 @@ export const ButtonWraper = styled('div')`
     }
 `
 
-export const AppWraper = styled('div')`
+export const LoginWrapper = styled('div')`
     flex-direction: column;
     display: flex;
     justify-content: center;
+    height: 100%;
 `
 

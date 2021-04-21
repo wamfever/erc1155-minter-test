@@ -1,5 +1,7 @@
 import React from 'react';
-import { Button, ButtonWraper, AppWraper } from './ConnectScreen.style';
+import { Button } from '../../App.style';
+import { ButtonWraper, LoginWrapper } from './ConnectScreen.style';
+
 import Web3 from 'web3';
 import LoginModal from "../../components/LoginModal/LoginModal";
 import Web3Service from "../../services/Web3Service";
@@ -12,10 +14,6 @@ declare global {
 
 export default function ConnectScreen() {
   const history = useHistory();
-
-  if (true) {
-    history.push('/dashboard');
-  }
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
@@ -32,12 +30,11 @@ export default function ConnectScreen() {
   };
 
   const initWeb3 = () => {
-    const web3 = new Web3(window.ethereum);
-    Web3Service.setConnectedWeb3(web3);
+    history.push('/dashboard');
   };
 
   return (
-    <AppWraper>
+    <LoginWrapper>
       <ButtonWraper>
         <Button onClick={openModal}>Connect Provider</Button>
         <LoginModal
@@ -47,6 +44,6 @@ export default function ConnectScreen() {
           connectSuccessCallback={initWeb3}
         />
       </ButtonWraper>
-    </AppWraper>
+    </LoginWrapper>
   );
 }

@@ -3,10 +3,10 @@ import {InputErrorSpan, Panel, PanelContent} from '../Panel.style';
 import {useForm} from "react-hook-form";
 import Web3Service from "../../../services/Web3Service";
 import {toast} from "react-toastify";
-import {Button, Input} from '../../../App.style';
+import {Button, Input} from "../../../App.style";
 import ButtonFactory from "../../../services/ButtonFactory";
 
-export default function PanelWhitelist(props: any) {
+export default function PanelBlacklist(props: any) {
     const { refreshRoles } = props;
 
     const [pendingBlockchain, setPending] = React.useState(false);
@@ -14,21 +14,21 @@ export default function PanelWhitelist(props: any) {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data : any) => {
         setPending(true);
-        Web3Service.addWhitelist(data.whitelisted).then((data : any) => {
-            toast(`Whitelisting completed: ${data.transactionHash}`);
+        Web3Service.removeWhitelist(data.whitelisted).then((data : any) => {
+            toast(`Blacklisting completed: ${data.transactionHash}`);
             setPending(false);
             refreshRoles();
-        })
+        });
     };
 
     return (
         <Panel>
             <PanelContent>
-                <h2>OWNER - Add Whitelist</h2>
+                <h2>OWNER - Remove Whitelist</h2>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     {/* include validation with required or other standard HTML validation rules */}
                     <Input type="text" placeholder="Account" {...register("whitelisted", { required: true })} />
-                    {errors.whitelisted && <InputErrorSpan>Whitelisted address is required</InputErrorSpan>}
+                    {errors.whitelisted && <InputErrorSpan>Blacklisted address is required</InputErrorSpan>}
 
                     {ButtonFactory.getSubmitButton(pendingBlockchain)}
                 </form>
