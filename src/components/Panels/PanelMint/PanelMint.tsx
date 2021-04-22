@@ -6,8 +6,9 @@ import {toast} from "react-toastify";
 import {Input} from "../../../App.style";
 import ButtonFactory from "../../../services/ButtonFactory";
 
-export default function PanelMint() {
+export default function PanelMint(props: any) {
     const [pendingBlockchain, setPending] = React.useState(false);
+    const { refreshBalance } = props;
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -17,6 +18,7 @@ export default function PanelMint() {
         Web3Service.mintTokens(data.tokenId, data.amount, data.address).then((data : any) => {
             toast(`Minting completed: ${data.transactionHash}`);
             setPending(false);
+            refreshBalance();
         })
     };
 

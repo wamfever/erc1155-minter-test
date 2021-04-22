@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Web3 from "web3";
 
 import Web3Service from "../../services/Web3Service";
-import { DashboardWraper, PageContainer, TitleWrapper } from './DashboardScreen.style';
+import { DashboardWraper, PageContainer, TitleWrapper, TitleColumnWrapper } from './DashboardScreen.style';
 
 import PanelWhitelist from "../../components/Panels/PanelWhitelist/PanelWhitelist";
 import PanelBurn from "../../components/Panels/PanelBurn/PanelBurn";
@@ -17,6 +17,8 @@ export default function DashboardScreen() {
 
     const [isOwner, setIsOwner] = React.useState(false);
     const [isMinter, setIsMinter] = React.useState(false);
+
+    const [currentBalance, setCurrentBalance] = React.useState(false);
 
     // init web3
     const web3 = new Web3(window.ethereum);
@@ -41,7 +43,14 @@ export default function DashboardScreen() {
         });
     };
 
+    const refreshBalance = () => {
+        Web3Service.getBalance(Web3Service.getCurrentAddress()).then((balance : any) => {
+            setCurrentBalance(balance);
+        })
+    }
+
     refreshRoles();
+    refreshBalance();
 
     if (!isFinishedComputeRoles) {
         return (<>
@@ -53,11 +62,18 @@ export default function DashboardScreen() {
         refreshRoles: refreshRoles,
     };
 
+    const refreshBalanceObject = {
+        refreshBalance: refreshBalance,
+    };
+
 
     return (<>
         <PageContainer>
             <TitleWrapper>
-                <h1>KeyKo - ERC1155 Controller</h1>
+                <TitleColumnWrapper>
+                    <h1>KeyKo - ERC1155 Controller</h1>
+                    <h2>Balance token 1: {currentBalance}</h2>
+                </TitleColumnWrapper>
             </TitleWrapper>
 
             {isOwner && <DashboardWraper>
@@ -65,8 +81,8 @@ export default function DashboardScreen() {
                 <PanelBlacklist {...refreshRolesObject} />
             </DashboardWraper>}
             <DashboardWraper>
-                {isMinter && <PanelMint />}
-                <PanelBurn />
+                {isMinter && <PanelMint {...refreshBalanceObject} />}
+                <PanelBurn {...refreshBalanceObject}/>
             </DashboardWraper>
         </PageContainer>
         <ToastContainer/>

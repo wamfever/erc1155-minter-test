@@ -6,8 +6,9 @@ import {toast} from "react-toastify";
 import {Input} from "../../../App.style";
 import ButtonFactory from "../../../services/ButtonFactory";
 
-export default function PanelBurn() {
+export default function PanelBurn(props: any) {
     const [pendingBlockchain, setPending] = React.useState(false);
+    const { refreshBalance } = props;
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -16,6 +17,7 @@ export default function PanelBurn() {
         Web3Service.burnTokens(data.tokenId, data.amount).then((data : any) => {
             toast(`Burning completed: ${data.transactionHash}`);
             setPending(false);
+            refreshBalance();
         })
     };
 

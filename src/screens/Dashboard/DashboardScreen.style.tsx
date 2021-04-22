@@ -18,3 +18,9 @@ export const TitleWrapper = styled('div')`
     display: flex;
     justify-content: center;
 `;
+
+export const TitleColumnWrapper = styled('div')`
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+`;

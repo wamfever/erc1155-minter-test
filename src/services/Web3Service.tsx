@@ -49,6 +49,10 @@ const Web3Service = {
         return contract.methods.isWhitelisted(address).call();
     },
 
+    getBalance: (address: any) => {
+        return contract.methods.balanceOf(address, 1).call();
+    },
+
     getCurrentAddress: () => selectedAddress,
 };
 

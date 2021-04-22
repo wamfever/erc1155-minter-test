@@ -24,6 +24,7 @@ We have 4 widgets:
 - Remove whitelist (owner only)
 - Mint (minter only)
 - Burn (all connected users)
+- (additional) Balance of token with id 1
 
 ## CSS
 We use the styled-components package in order to create the CSS for the components and screens. Each component or screen will be child of a folder with the same name and will have a ``.style.tsx`` sibling.
@@ -35,11 +36,13 @@ Generally available CSS is set in `App.style.tsx`.
 - conditional rendering based on user roles
 - reactive Submit buttons, auto disable/re-enable
 - REFRESH role computation if an owner calls Add/Remove Whitelist on themselves (after successfull Add Whitelist, the MINTER Widget appears automatically, and after successull Remove Whitelist, the MINTER Widget dissappears automatically)
+- REFRESH balance computation after mint/burn (please use token id 1)
 - web3js usage for calling
     - public contract variables
     - public read functions
     - public write functions
     - functions restricted only to a small group of users
     - onlyOwner functions
+    - balanceOf function
 - deployment and prerequisites for the contract which can be found [here](https://rinkeby.etherscan.io/address/0x9c88EA32d0693F8dA29EaFa2A239A7EF716290f1#readContract)
 
