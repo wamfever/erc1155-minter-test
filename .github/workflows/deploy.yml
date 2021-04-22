@@ -18,6 +18,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install Packages
         run: npm install
+      - name: Testing
+        run: npm test -- --watchAll=false
       - name: Build page
         run: npm run build
       - name: Deploy to gh-pages
