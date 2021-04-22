@@ -2,14 +2,14 @@ import React from 'react';
 import {InputErrorSpan, Panel, PanelContent} from '../Panel.style';
 import { useForm } from "react-hook-form";
 import Web3Service from "../../../services/Web3Service";
-import ContractData from "../../../services/ContractData";
 import {toast} from "react-toastify";
-import {Button, Input} from "../../../App.style";
+import {Input} from "../../../App.style";
 import ButtonFactory from "../../../services/ButtonFactory";
 
 export default function PanelBurn() {
     const [pendingBlockchain, setPending] = React.useState(false);
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = (data : any) => {
         setPending(true);

@@ -2,9 +2,9 @@ import React from 'react';
 import { Button } from '../../App.style';
 import { ButtonWraper, LoginWrapper } from './ConnectScreen.style';
 
-import Web3 from 'web3';
+// import Web3 from 'web3';
 import LoginModal from "../../components/LoginModal/LoginModal";
-import Web3Service from "../../services/Web3Service";
+// import Web3Service from "../../services/Web3Service";
 import {useHistory} from "react-router";
 
 
