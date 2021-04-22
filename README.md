@@ -46,3 +46,16 @@ Generally available CSS is set in `App.style.tsx`.
     - balanceOf function
 - deployment and prerequisites for the contract which can be found [here](https://rinkeby.etherscan.io/address/0x9c88EA32d0693F8dA29EaFa2A239A7EF716290f1#readContract)
 
+
+## Running locally
+### On the existing contract
+1. ``npm install``
+2. ``npm start``
+3. 🚀🚀🚀🌑
+
+If you want to play with the whole interface, we will provide you ownership of the current contract.
+
+### On fresh Contract
+1. Follow the instructions [here](https://github.com/wamfever/erc1155-contract-test)
+2. After setting ``ContractData.jsx`` follow the steps from the existing contract section
+3. 🚀🚀🚀🌑
